@@ -73,7 +73,7 @@ double LWeight(double x, int a) {
 
 int main(void)
 {
-    const int iPREV_WIDTH = 10,iPREV_HEIGHT=10;
+    const int iPREV_WIDTH = 10, iPREV_HEIGHT = 10;
     std::vector<std::vector<int>> imgPREV;
 
     std::vector<int> tmp(iPREV_WIDTH);
@@ -91,54 +91,52 @@ int main(void)
         std::cout << std::endl;
     }
 
-    int iRES_WIDTH,iRES_HEIGHT;
-    std::cin >> iRES_WIDTH>>iRES_HEIGHT;
+    int iRES_WIDTH, iRES_HEIGHT;
+    std::cin >> iRES_WIDTH >> iRES_HEIGHT;
     int iXA = iRES_WIDTH > iPREV_WIDTH ? 3 : 2;
     int iYA = iRES_HEIGHT > iPREV_HEIGHT ? 3 : 2;
-
     std::cout << iXA << " " << iYA << std::endl;
+
+
     
-    std::vector<int> vXRange(2 * iXA);
-    std::vector<int> vYRange(2 * iYA);
+    double dS;
+    double dX, dY;
+    int iFloorX, iFloorY, s;
+    std::vector<int> vLXRange(2 * iXA);
+    std::vector<int> vLYRange(2 * iYA);
     std::vector<std::vector<int>> imgRES;
+    double lX, lY;
+    int iResult;
 
     std::vector<int> vResTmp(iRES_WIDTH, 0);
     for (int i = 0; i < iRES_HEIGHT; i++) {
         imgRES.push_back(vResTmp);
     }
 
-    int iResult;
-    double dS;
-    double dX, dY;
-    int iFloorX, iFloorY;
-    std::vector<int> vLXRange(2 * iXA);
-    std::vector<int> vLYRange(2 * iYA);
 
     for (int i = 0; i < iRES_HEIGHT; i++) {
-
         dX = ((i + 1) * iPREV_HEIGHT) / static_cast<double>(iRES_HEIGHT) - 1;
         iFloorX = static_cast<int>(std::floor(dX));
         std::iota(vLXRange.begin(), vLXRange.end(), iFloorX - iXA + 1);
 
         for (int j = 0; j < iRES_WIDTH; j++) {
-            
             dY = ((j + 1) * iPREV_WIDTH) / static_cast<double>(iRES_WIDTH) - 1;
             iFloorY = static_cast<int>(std::floor(dY));
             std::iota(vLYRange.begin(), vLYRange.end(), iFloorY - iYA + 1);
 
             dS = 0;
-            for (auto k = 0; k < 2 * iXA; k++) {
-                for (auto l = 0; l < 2 * iYA; l++) {
-                    dS += get(imgPREV, vLXRange[k], vYRange[l]) * LWeight(dX - vLXRange[k], iXA) * LWeight(dY - vLYRange[l], iYA);
+            for (int k = 0; k < 2 * iXA; k++) {
+                for (int l = 0; l < 2 * iYA; l++) {
+                    dS += get(imgPREV, vLXRange[k], vLYRange[l]) * LWeight(dX - vLXRange[k], iXA) * LWeight(dY - vLYRange[l], iYA);
                 }
             }
 
-            iResult =  static_cast<int>(std::round(dS));
+            iResult = static_cast<int>(std::round(dS));
             imgRES[i][j] = iResult > 0 ? iResult : 0;
 
             std::cout << imgRES[i][j] << " ";
         }
-       
+
         std::cout << std::endl;
     }
 
