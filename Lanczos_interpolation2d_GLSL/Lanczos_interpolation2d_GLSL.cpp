@@ -47,7 +47,7 @@ int main()
 
     // build and compile our shader zprogram
     // ------------------------------------
-    Shader ourShader("Lanczos.vert", "Lanczos.frag");
+    Shader ourShader("Lanczos.vert", "original.frag");
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
@@ -100,7 +100,7 @@ int main()
     // load image, create texture and generate mipmaps
     int width, height, nrChannels;
     // The FileSystem::getPath(...) is part of the GitHub repository so we can find files on any IDE/platform; replace it with your own image path.
-    unsigned char* data = stbi_load("resources/container.jpg", &width, &height, &nrChannels, 0);
+    unsigned char* data = stbi_load("resources/awesomeface.png", &width, &height, &nrChannels, 0);
     if (data)
     {
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
@@ -114,8 +114,7 @@ int main()
     ourShader.setFloat("fWidth", (float)width);
     ourShader.setFloat("fHeight", (float)height);
 
-    // bind Texture
-    glBindTexture(GL_TEXTURE_2D, texture);
+   
 
     // render loop
     // -----------
@@ -129,6 +128,9 @@ int main()
         // ------
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
+
+        // bind Texture
+        glBindTexture(GL_TEXTURE_2D, texture);
 
         // render container
         ourShader.use();
