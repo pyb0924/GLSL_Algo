@@ -115,12 +115,12 @@ int main(void)
 
 
     for (int i = 0; i < iRES_HEIGHT; i++) {
-        dX = ((i + 1) * iPREV_HEIGHT) / static_cast<double>(iRES_HEIGHT) - 1;
+        dX = ((i + 1.0) * iPREV_HEIGHT) / iRES_HEIGHT - 1;
         iFloorX = static_cast<int>(std::floor(dX));
         std::iota(vLXRange.begin(), vLXRange.end(), iFloorX - iXA + 1);
 
         for (int j = 0; j < iRES_WIDTH; j++) {
-            dY = ((j + 1) * iPREV_WIDTH) / static_cast<double>(iRES_WIDTH) - 1;
+            dY = ((j + 1.0) * iPREV_WIDTH) / iRES_WIDTH - 1;
             iFloorY = static_cast<int>(std::floor(dY));
             std::iota(vLYRange.begin(), vLYRange.end(), iFloorY - iYA + 1);
 

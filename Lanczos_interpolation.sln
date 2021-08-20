@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lanczos_interpolation1d", "
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lanczos_interpolation2d", "Lanczos_interpolation2d\Lanczos_interpolation2d.vcxproj", "{DA2BA263-2E88-4D56-833A-1477522D9DBC}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lanczos_interpolation2d_GLSL", "Lanczos_interpolation2d_GLSL\Lanczos_interpolation2d_GLSL.vcxproj", "{28C982F7-0B27-4112-BDF8-0B536AF9A6E7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{DA2BA263-2E88-4D56-833A-1477522D9DBC}.Release|x64.Build.0 = Release|x64
 		{DA2BA263-2E88-4D56-833A-1477522D9DBC}.Release|x86.ActiveCfg = Release|Win32
 		{DA2BA263-2E88-4D56-833A-1477522D9DBC}.Release|x86.Build.0 = Release|Win32
+		{28C982F7-0B27-4112-BDF8-0B536AF9A6E7}.Debug|x64.ActiveCfg = Debug|x64
+		{28C982F7-0B27-4112-BDF8-0B536AF9A6E7}.Debug|x64.Build.0 = Debug|x64
+		{28C982F7-0B27-4112-BDF8-0B536AF9A6E7}.Debug|x86.ActiveCfg = Debug|Win32
+		{28C982F7-0B27-4112-BDF8-0B536AF9A6E7}.Debug|x86.Build.0 = Debug|Win32
+		{28C982F7-0B27-4112-BDF8-0B536AF9A6E7}.Release|x64.ActiveCfg = Release|x64
+		{28C982F7-0B27-4112-BDF8-0B536AF9A6E7}.Release|x64.Build.0 = Release|x64
+		{28C982F7-0B27-4112-BDF8-0B536AF9A6E7}.Release|x86.ActiveCfg = Release|Win32
+		{28C982F7-0B27-4112-BDF8-0B536AF9A6E7}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

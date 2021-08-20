@@ -73,7 +73,7 @@ int main(void)
 
     for (int i = 0; i < iRES_LEN; i++) {
         
-        dX = ((i + 1) * iPREV_LEN) / static_cast<double>(iRES_LEN)-1;
+        dX = ((i + 1.0) * iPREV_LEN) / iRES_LEN-1;
         iFloorX = static_cast<int>(std::floor(dX));
         std::iota(vLRange.begin(), vLRange.end(), iFloorX - iHalfWidth + 1);
         
