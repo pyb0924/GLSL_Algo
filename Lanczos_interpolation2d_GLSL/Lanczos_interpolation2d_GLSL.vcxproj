@@ -149,12 +149,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Lanczos.frag" />
+    <None Include="original.frag" />
     <None Include="Lanczos.vert" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shader.h" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="resources\awesomeface.png" />
     <Image Include="resource\container.jpg" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

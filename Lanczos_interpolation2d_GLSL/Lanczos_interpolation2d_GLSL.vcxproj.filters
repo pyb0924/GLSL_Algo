@@ -32,10 +32,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Lanczos.frag">
+    <None Include="original.frag">
       <Filter>Shaders</Filter>
     </None>
     <None Include="Lanczos.vert">
+      <Filter>Shaders</Filter>
+    </None>
+    <None Include="Lanczos.frag">
       <Filter>Shaders</Filter>
     </None>
   </ItemGroup>
@@ -46,6 +49,9 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="resource\container.jpg">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="resources\awesomeface.png">
       <Filter>Resource Files</Filter>
     </Image>
   </ItemGroup>
