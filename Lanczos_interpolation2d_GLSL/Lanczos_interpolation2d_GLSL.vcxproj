@@ -151,6 +151,7 @@
     <None Include="Lanczos.frag" />
     <None Include="original.frag" />
     <None Include="Lanczos.vert" />
+    <None Include="biCubic.frag" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Shader.h" />
