@@ -49,5 +49,5 @@ vec4 Lanczos(sampler2D textureSampler,vec2 TexCoord){
 
 void main()
 {
-	FragColor = Lanczos(texture1,TexCoord);
+	FragColor = (ourColor, 1) *Lanczos(texture1,TexCoord);
 }
