@@ -47,7 +47,7 @@ int main()
 
     // build and compile our shader zprogram
     // ------------------------------------
-    Shader ourShader("Lanczos.vert", "original.frag");
+    Shader ourShader("Lanczos.vert", "Lanczos.frag");
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
     // ------------------------------------------------------------------
@@ -110,11 +110,6 @@ int main()
         std::cout << "Failed to load texture" << std::endl;
     }
     stbi_image_free(data);
-
-    ourShader.setFloat("fWidth", (float)width);
-    ourShader.setFloat("fHeight", (float)height);
-
-   
 
     // render loop
     // -----------
