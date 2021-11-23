@@ -15,31 +15,31 @@ float LWeight(float x) {
     if (abs(x) < 1e-8) {
         return 1.0f;
     }
-    else if (abs(x) >= 3) {
-        return 0.0f;
-    }
     else {
         return sinc(x) * sinc(x / 3);
     }
 }
 
-vec4 Lanczos(sampler2D textureSampler,vec2 TexCoord){
-    vec2 texTureDim = textureSize(textureSampler, 0);
-    vec2 samplePos = floor( texTureDim * TexCoord - 0.5) + 0.5;
-    samplePos/=vec2(texTureDim);
-    vec4 nSum = vec4( 0.0, 0.0, 0.0, 0.0 );
-    float f,f1;
+vec4 Lanczos(sampler2D textureSampler,vec2 texCoord){
+    ivec2 dim = textureSize(textureSampler, 0);
+    vec2 imgCoord = vec2(dim) * texCoord;
+    vec2 samplePos = floor(imgCoord - 0.5) + 0.5;
+    vec2 interpFactor = imgCoord - samplePos;
+    samplePos /= vec2(dim);
 
+    vec4 nSum = vec4( 0.0, 0.0, 0.0, 0.0 );
+    float fX,fY;
+        
     for( int m = -2; m <=3; m++ )
     {
-        f  = LWeight(float(m));
-        vec4 vecCooef1 = vec4( f,f,f,f );
+        fX  = LWeight(float(m)-interpFactor.x);
+        vec4 vecCooef1 = vec4( fX,fX,fX,fX );
         for( int n = -2; n<= 3; n++)
         {
 			vec4 vecData = textureOffset(textureSampler,samplePos,ivec2(m,n));
-			f1 = LWeight(float(n));
-			vec4 vecCoeef2 = vec4( f1, f1, f1, f1 );
-            nSum += vecData * vecCoeef2 * vecCooef1  ;
+			fY = LWeight(float(n)-interpFactor.y);
+			vec4 vecCoeef2 = vec4( fY, fY, fY, fY );
+            nSum += vecData * vecCoeef2 * vecCooef1 ;
         }
     }
     return nSum ;
